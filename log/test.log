@@ -817,3 +817,1022 @@ Redirected to http://test.host/basic_example/trips/9
 Completed 302 Found in 12ms (ActiveRecord: 2.7ms)
   [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (9.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:11:39 UTC], ["updated_at", 2016-02-13 16:11:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/10
+Completed 302 Found in 41ms (ActiveRecord: 20.4ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}, {"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}, {"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}, {"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}, {"arrival_date"=>"02/14/2016", "city"=>"North Theodore", "departure_date"=>"02/15/2016", "state"=>"Indiana"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:11:39 UTC], ["updated_at", 2016-02-13 16:11:39 UTC]]
+  [1m[35mSQL (10.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Theodore"], ["state", "Indiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:11:39 UTC], ["updated_at", 2016-02-13 16:11:39 UTC], ["trip_id", 11]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Theodore"], ["state", "Indiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:11:39 UTC], ["updated_at", 2016-02-13 16:11:39 UTC], ["trip_id", 11]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Theodore"], ["state", "Indiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:11:39 UTC], ["updated_at", 2016-02-13 16:11:39 UTC], ["trip_id", 11]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/11
+Completed 302 Found in 71ms (ActiveRecord: 19.8ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:12:21 UTC], ["updated_at", 2016-02-13 16:12:21 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/12
+Completed 302 Found in 24ms (ActiveRecord: 6.6ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"New Armando", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:12:21 UTC], ["updated_at", 2016-02-13 16:12:21 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Armando"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:12:21 UTC], ["updated_at", 2016-02-13 16:12:21 UTC], ["trip_id", 13]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Armando"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:12:21 UTC], ["updated_at", 2016-02-13 16:12:21 UTC], ["trip_id", 13]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Armando"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:12:21 UTC], ["updated_at", 2016-02-13 16:12:21 UTC], ["trip_id", 13]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/13
+Completed 302 Found in 59ms (ActiveRecord: 8.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:14:04 UTC], ["updated_at", 2016-02-13 16:14:04 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/14
+Completed 302 Found in 27ms (ActiveRecord: 6.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"Port Omariside", "departure_date"=>"02/15/2016", "state"=>"Illinois"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:14:04 UTC], ["updated_at", 2016-02-13 16:14:04 UTC]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Port Omariside"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:14:04 UTC], ["updated_at", 2016-02-13 16:14:04 UTC], ["trip_id", 15]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Port Omariside"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:14:04 UTC], ["updated_at", 2016-02-13 16:14:04 UTC], ["trip_id", 15]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Port Omariside"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:14:04 UTC], ["updated_at", 2016-02-13 16:14:04 UTC], ["trip_id", 15]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/15
+Completed 302 Found in 69ms (ActiveRecord: 7.8ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 35603ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:16:00 UTC], ["updated_at", 2016-02-13 16:16:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/16
+Completed 302 Found in 25ms (ActiveRecord: 6.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"South Dustinmouth", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:16:00 UTC], ["updated_at", 2016-02-13 16:16:00 UTC]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Dustinmouth"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:16:00 UTC], ["updated_at", 2016-02-13 16:16:00 UTC], ["trip_id", 17]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Dustinmouth"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:16:00 UTC], ["updated_at", 2016-02-13 16:16:00 UTC], ["trip_id", 17]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Dustinmouth"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:16:00 UTC], ["updated_at", 2016-02-13 16:16:00 UTC], ["trip_id", 17]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/17
+Completed 302 Found in 49ms (ActiveRecord: 8.4ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 92974ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:17:40 UTC], ["updated_at", 2016-02-13 16:17:40 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/18
+Completed 302 Found in 27ms (ActiveRecord: 7.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}, {"arrival_date"=>"02/14/2016", "city"=>"West Ivy", "departure_date"=>"02/15/2016", "state"=>"Illinois"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:17:41 UTC], ["updated_at", 2016-02-13 16:17:41 UTC]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Ivy"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:41 UTC], ["updated_at", 2016-02-13 16:17:41 UTC], ["trip_id", 19]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Ivy"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:41 UTC], ["updated_at", 2016-02-13 16:17:41 UTC], ["trip_id", 19]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Ivy"], ["state", "Illinois"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:41 UTC], ["updated_at", 2016-02-13 16:17:41 UTC], ["trip_id", 19]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/19
+Completed 302 Found in 53ms (ActiveRecord: 7.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:17:49 UTC], ["updated_at", 2016-02-13 16:17:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/20
+Completed 302 Found in 18ms (ActiveRecord: 4.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}, {"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}, {"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}, {"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}, {"arrival_date"=>"02/14/2016", "city"=>"Gottliebside", "departure_date"=>"02/15/2016", "state"=>"Oklahoma"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:17:49 UTC], ["updated_at", 2016-02-13 16:17:49 UTC]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gottliebside"], ["state", "Oklahoma"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:49 UTC], ["updated_at", 2016-02-13 16:17:49 UTC], ["trip_id", 21]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gottliebside"], ["state", "Oklahoma"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:49 UTC], ["updated_at", 2016-02-13 16:17:49 UTC], ["trip_id", 21]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gottliebside"], ["state", "Oklahoma"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:17:49 UTC], ["updated_at", 2016-02-13 16:17:49 UTC], ["trip_id", 21]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/21
+Completed 302 Found in 53ms (ActiveRecord: 8.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 61221ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:19:15 UTC], ["updated_at", 2016-02-13 16:19:15 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/22
+Completed 302 Found in 34ms (ActiveRecord: 8.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Moorestad", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:19:15 UTC], ["updated_at", 2016-02-13 16:19:15 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Moorestad"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:19:15 UTC], ["updated_at", 2016-02-13 16:19:15 UTC], ["trip_id", 23]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Moorestad"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:19:15 UTC], ["updated_at", 2016-02-13 16:19:15 UTC], ["trip_id", 23]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Moorestad"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:19:15 UTC], ["updated_at", 2016-02-13 16:19:15 UTC], ["trip_id", 23]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/23
+Completed 302 Found in 48ms (ActiveRecord: 6.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:20:05 UTC], ["updated_at", 2016-02-13 16:20:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/24
+Completed 302 Found in 23ms (ActiveRecord: 5.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}, {"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}, {"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}, {"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}, {"arrival_date"=>"02/14/2016", "city"=>"South Casandramouth", "departure_date"=>"02/15/2016", "state"=>"Georgia"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:20:06 UTC], ["updated_at", 2016-02-13 16:20:06 UTC]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Casandramouth"], ["state", "Georgia"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:20:06 UTC], ["updated_at", 2016-02-13 16:20:06 UTC], ["trip_id", 25]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Casandramouth"], ["state", "Georgia"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:20:06 UTC], ["updated_at", 2016-02-13 16:20:06 UTC], ["trip_id", 25]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Casandramouth"], ["state", "Georgia"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:20:06 UTC], ["updated_at", 2016-02-13 16:20:06 UTC], ["trip_id", 25]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/25
+Completed 302 Found in 61ms (ActiveRecord: 10.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 10648ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:21:14 UTC], ["updated_at", 2016-02-13 16:21:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/26
+Completed 302 Found in 24ms (ActiveRecord: 5.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 2994ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"North Norwood", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:21:17 UTC], ["updated_at", 2016-02-13 16:21:17 UTC]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Norwood"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:17 UTC], ["updated_at", 2016-02-13 16:21:17 UTC], ["trip_id", 27]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Norwood"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:17 UTC], ["updated_at", 2016-02-13 16:21:17 UTC], ["trip_id", 27]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Norwood"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:17 UTC], ["updated_at", 2016-02-13 16:21:17 UTC], ["trip_id", 27]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/27
+Completed 302 Found in 57ms (ActiveRecord: 10.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:21:40 UTC], ["updated_at", 2016-02-13 16:21:40 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/28
+Completed 302 Found in 25ms (ActiveRecord: 5.4ms)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}, {"arrival_date"=>"02/14/2016", "city"=>"Beattyberg", "departure_date"=>"02/15/2016", "state"=>"New York"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:21:40 UTC], ["updated_at", 2016-02-13 16:21:40 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Beattyberg"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:40 UTC], ["updated_at", 2016-02-13 16:21:40 UTC], ["trip_id", 29]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Beattyberg"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:40 UTC], ["updated_at", 2016-02-13 16:21:40 UTC], ["trip_id", 29]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Beattyberg"], ["state", "New York"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:21:40 UTC], ["updated_at", 2016-02-13 16:21:40 UTC], ["trip_id", 29]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/29
+Completed 302 Found in 50ms (ActiveRecord: 8.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 88297ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:23:20 UTC], ["updated_at", 2016-02-13 16:23:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/30
+Completed 302 Found in 29ms (ActiveRecord: 6.9ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}, {"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}, {"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3036ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}, {"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}, {"arrival_date"=>"02/14/2016", "city"=>"New Carolyneberg", "departure_date"=>"02/15/2016", "state"=>"Alabama"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:23:23 UTC], ["updated_at", 2016-02-13 16:23:23 UTC]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Carolyneberg"], ["state", "Alabama"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:23 UTC], ["updated_at", 2016-02-13 16:23:23 UTC], ["trip_id", 31]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Carolyneberg"], ["state", "Alabama"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:23 UTC], ["updated_at", 2016-02-13 16:23:23 UTC], ["trip_id", 31]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "New Carolyneberg"], ["state", "Alabama"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:23 UTC], ["updated_at", 2016-02-13 16:23:23 UTC], ["trip_id", 31]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/31
+Completed 302 Found in 73ms (ActiveRecord: 7.4ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 7.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:23:44 UTC], ["updated_at", 2016-02-13 16:23:44 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/32
+Completed 302 Found in 15ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}, {"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}, {"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 3.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}, {"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}, {"arrival_date"=>"02/14/2016", "city"=>"Alfredofurt", "departure_date"=>"02/15/2016", "state"=>"Utah"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:23:44 UTC], ["updated_at", 2016-02-13 16:23:44 UTC]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Alfredofurt"], ["state", "Utah"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:44 UTC], ["updated_at", 2016-02-13 16:23:44 UTC], ["trip_id", 33]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Alfredofurt"], ["state", "Utah"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:44 UTC], ["updated_at", 2016-02-13 16:23:44 UTC], ["trip_id", 33]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Alfredofurt"], ["state", "Utah"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:23:44 UTC], ["updated_at", 2016-02-13 16:23:44 UTC], ["trip_id", 33]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/33
+Completed 302 Found in 13ms (ActiveRecord: 3.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 4.7ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:25:34 UTC], ["updated_at", 2016-02-13 16:25:34 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/34
+Completed 302 Found in 12ms (ActiveRecord: 1.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 3.7ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Geraldland", "departure_date"=>"02/15/2016", "state"=>"Vermont"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:25:34 UTC], ["updated_at", 2016-02-13 16:25:34 UTC]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Geraldland"], ["state", "Vermont"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:25:34 UTC], ["updated_at", 2016-02-13 16:25:34 UTC], ["trip_id", 35]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Geraldland"], ["state", "Vermont"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:25:34 UTC], ["updated_at", 2016-02-13 16:25:34 UTC], ["trip_id", 35]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Geraldland"], ["state", "Vermont"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:25:34 UTC], ["updated_at", 2016-02-13 16:25:34 UTC], ["trip_id", 35]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/35
+Completed 302 Found in 17ms (ActiveRecord: 6.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/36
+Completed 302 Found in 29ms (ActiveRecord: 5.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/37
+Completed 302 Found in 3ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC], ["trip_id", 38]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC], ["trip_id", 38]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:17 UTC], ["updated_at", 2016-02-13 16:26:17 UTC], ["trip_id", 38]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/38
+Completed 302 Found in 50ms (ActiveRecord: 6.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"North Mason", "departure_date"=>"02/15/2016", "state"=>"South Carolina"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 16:26:18 UTC], ["updated_at", 2016-02-13 16:26:18 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:18 UTC], ["updated_at", 2016-02-13 16:26:18 UTC], ["trip_id", 39]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:18 UTC], ["updated_at", 2016-02-13 16:26:18 UTC], ["trip_id", 39]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "North Mason"], ["state", "South Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 16:26:18 UTC], ["updated_at", 2016-02-13 16:26:18 UTC], ["trip_id", 39]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/39
+Completed 302 Found in 16ms (ActiveRecord: 3.6ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.1ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 23:56:30 UTC], ["updated_at", 2016-02-13 23:56:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/40
+Completed 302 Found in 44ms (ActiveRecord: 10.1ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"Jesusview", "departure_date"=>"02/15/2016", "state"=>"Oregon"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-13 23:56:30 UTC], ["updated_at", 2016-02-13 23:56:30 UTC]]
+  [1m[35mSQL (6.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Jesusview"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 23:56:30 UTC], ["updated_at", 2016-02-13 23:56:30 UTC], ["trip_id", 41]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Jesusview"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 23:56:30 UTC], ["updated_at", 2016-02-13 23:56:30 UTC], ["trip_id", 41]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Jesusview"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-13 23:56:30 UTC], ["updated_at", 2016-02-13 23:56:30 UTC], ["trip_id", 41]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/41
+Completed 302 Found in 49ms (ActiveRecord: 12.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:01:26 UTC], ["updated_at", 2016-02-14 00:01:26 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/42
+Completed 302 Found in 39ms (ActiveRecord: 7.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Lake Zula", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:01:26 UTC], ["updated_at", 2016-02-14 00:01:26 UTC]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Zula"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:01:26 UTC], ["updated_at", 2016-02-14 00:01:26 UTC], ["trip_id", 43]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Zula"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:01:26 UTC], ["updated_at", 2016-02-14 00:01:26 UTC], ["trip_id", 43]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Lake Zula"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:01:26 UTC], ["updated_at", 2016-02-14 00:01:26 UTC], ["trip_id", 43]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/43
+Completed 302 Found in 46ms (ActiveRecord: 7.9ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 111773ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:03:48 UTC], ["updated_at", 2016-02-14 00:03:48 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/44
+Completed 302 Found in 31ms (ActiveRecord: 9.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Savanahton", "departure_date"=>"02/15/2016", "state"=>"North Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:03:48 UTC], ["updated_at", 2016-02-14 00:03:48 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Savanahton"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:03:48 UTC], ["updated_at", 2016-02-14 00:03:48 UTC], ["trip_id", 45]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Savanahton"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:03:48 UTC], ["updated_at", 2016-02-14 00:03:48 UTC], ["trip_id", 45]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Savanahton"], ["state", "North Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:03:48 UTC], ["updated_at", 2016-02-14 00:03:48 UTC], ["trip_id", 45]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/45
+Completed 302 Found in 53ms (ActiveRecord: 8.9ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 105825ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:05:42 UTC], ["updated_at", 2016-02-14 00:05:42 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/46
+Completed 302 Found in 29ms (ActiveRecord: 7.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}, {"arrival_date"=>"02/14/2016", "city"=>"East Phoebehaven", "departure_date"=>"02/15/2016", "state"=>"Connecticut"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:05:42 UTC], ["updated_at", 2016-02-14 00:05:42 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "East Phoebehaven"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:05:42 UTC], ["updated_at", 2016-02-14 00:05:42 UTC], ["trip_id", 47]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "East Phoebehaven"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:05:42 UTC], ["updated_at", 2016-02-14 00:05:42 UTC], ["trip_id", 47]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "East Phoebehaven"], ["state", "Connecticut"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:05:42 UTC], ["updated_at", 2016-02-14 00:05:42 UTC], ["trip_id", 47]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/47
+Completed 302 Found in 50ms (ActiveRecord: 7.0ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 82358ms (ActiveRecord: 6.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:07:13 UTC], ["updated_at", 2016-02-14 00:07:13 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/48
+Completed 302 Found in 25ms (ActiveRecord: 1.9ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}, {"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}, {"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}, {"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}, {"arrival_date"=>"02/14/2016", "city"=>"Enricoton", "departure_date"=>"02/15/2016", "state"=>"Louisiana"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:07:13 UTC], ["updated_at", 2016-02-14 00:07:13 UTC]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Enricoton"], ["state", "Louisiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:07:13 UTC], ["updated_at", 2016-02-14 00:07:13 UTC], ["trip_id", 49]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Enricoton"], ["state", "Louisiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:07:13 UTC], ["updated_at", 2016-02-14 00:07:13 UTC], ["trip_id", 49]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Enricoton"], ["state", "Louisiana"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:07:13 UTC], ["updated_at", 2016-02-14 00:07:13 UTC], ["trip_id", 49]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/49
+Completed 302 Found in 55ms (ActiveRecord: 8.8ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 71220ms (ActiveRecord: 5.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:08:32 UTC], ["updated_at", 2016-02-14 00:08:32 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/50
+Completed 302 Found in 21ms (ActiveRecord: 2.5ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}, {"arrival_date"=>"02/14/2016", "city"=>"Sporerbury", "departure_date"=>"02/15/2016", "state"=>"Rhode Island"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:08:32 UTC], ["updated_at", 2016-02-14 00:08:32 UTC]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Sporerbury"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:08:32 UTC], ["updated_at", 2016-02-14 00:08:32 UTC], ["trip_id", 51]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Sporerbury"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:08:32 UTC], ["updated_at", 2016-02-14 00:08:32 UTC], ["trip_id", 51]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Sporerbury"], ["state", "Rhode Island"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:08:32 UTC], ["updated_at", 2016-02-14 00:08:32 UTC], ["trip_id", 51]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/51
+Completed 302 Found in 50ms (ActiveRecord: 8.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 138882ms (ActiveRecord: 6.9ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:11:56 UTC], ["updated_at", 2016-02-14 00:11:56 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/52
+Completed 302 Found in 18ms (ActiveRecord: 2.3ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}, {"arrival_date"=>"02/14/2016", "city"=>"West Trystan", "departure_date"=>"02/15/2016", "state"=>"Oregon"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:11:56 UTC], ["updated_at", 2016-02-14 00:11:56 UTC]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Trystan"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:11:56 UTC], ["updated_at", 2016-02-14 00:11:56 UTC], ["trip_id", 53]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Trystan"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:11:56 UTC], ["updated_at", 2016-02-14 00:11:56 UTC], ["trip_id", 53]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Trystan"], ["state", "Oregon"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:11:56 UTC], ["updated_at", 2016-02-14 00:11:56 UTC], ["trip_id", 53]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/53
+Completed 302 Found in 58ms (ActiveRecord: 8.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 91946ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:14:12 UTC], ["updated_at", 2016-02-14 00:14:12 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/54
+Completed 302 Found in 29ms (ActiveRecord: 6.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3565ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}, {"arrival_date"=>"02/14/2016", "city"=>"South Briceland", "departure_date"=>"02/15/2016", "state"=>"North Carolina"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 00:14:15 UTC], ["updated_at", 2016-02-14 00:14:15 UTC]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Briceland"], ["state", "North Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:14:15 UTC], ["updated_at", 2016-02-14 00:14:15 UTC], ["trip_id", 55]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Briceland"], ["state", "North Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:14:15 UTC], ["updated_at", 2016-02-14 00:14:15 UTC], ["trip_id", 55]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Briceland"], ["state", "North Carolina"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 00:14:15 UTC], ["updated_at", 2016-02-14 00:14:15 UTC], ["trip_id", 55]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/55
+Completed 302 Found in 64ms (ActiveRecord: 9.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 22365ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:42:11 UTC], ["updated_at", 2016-02-14 21:42:11 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/56
+Completed 302 Found in 27ms (ActiveRecord: 7.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1504ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}, {"arrival_date"=>"02/14/2016", "city"=>"Gloverville", "departure_date"=>"02/15/2016", "state"=>"South Dakota"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:42:13 UTC], ["updated_at", 2016-02-14 21:42:13 UTC]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gloverville"], ["state", "South Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:42:13 UTC], ["updated_at", 2016-02-14 21:42:13 UTC], ["trip_id", 57]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gloverville"], ["state", "South Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:42:13 UTC], ["updated_at", 2016-02-14 21:42:13 UTC], ["trip_id", 57]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Gloverville"], ["state", "South Dakota"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:42:13 UTC], ["updated_at", 2016-02-14 21:42:13 UTC], ["trip_id", 57]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/57
+Completed 302 Found in 55ms (ActiveRecord: 10.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 51766ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:50:06 UTC], ["updated_at", 2016-02-14 21:50:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/58
+Completed 302 Found in 23ms (ActiveRecord: 5.3ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}, {"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}, {"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 1620ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}, {"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}, {"arrival_date"=>"02/14/2016", "city"=>"South Merritthaven", "departure_date"=>"02/15/2016", "state"=>"New Hampshire"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:50:08 UTC], ["updated_at", 2016-02-14 21:50:08 UTC]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Merritthaven"], ["state", "New Hampshire"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:50:08 UTC], ["updated_at", 2016-02-14 21:50:08 UTC], ["trip_id", 59]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Merritthaven"], ["state", "New Hampshire"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:50:08 UTC], ["updated_at", 2016-02-14 21:50:08 UTC], ["trip_id", 59]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "South Merritthaven"], ["state", "New Hampshire"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:50:08 UTC], ["updated_at", 2016-02-14 21:50:08 UTC], ["trip_id", 59]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/59
+Completed 302 Found in 62ms (ActiveRecord: 11.8ms)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 428910ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:57:25 UTC], ["updated_at", 2016-02-14 21:57:25 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/60
+Completed 302 Found in 50ms (ActiveRecord: 8.2ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}, {"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}, {"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 3071ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}, {"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}, {"arrival_date"=>"02/14/2016", "city"=>"Eichmanntown", "departure_date"=>"02/15/2016", "state"=>"Wyoming"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:57:28 UTC], ["updated_at", 2016-02-14 21:57:28 UTC]]
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Eichmanntown"], ["state", "Wyoming"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:57:28 UTC], ["updated_at", 2016-02-14 21:57:28 UTC], ["trip_id", 61]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Eichmanntown"], ["state", "Wyoming"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:57:28 UTC], ["updated_at", 2016-02-14 21:57:28 UTC], ["trip_id", 61]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Eichmanntown"], ["state", "Wyoming"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:57:28 UTC], ["updated_at", 2016-02-14 21:57:28 UTC], ["trip_id", 61]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/61
+Completed 302 Found in 76ms (ActiveRecord: 12.0ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 11892ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by BasicExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:58:08 UTC], ["updated_at", 2016-02-14 21:58:08 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips_no_goaltender/62
+Completed 302 Found in 22ms (ActiveRecord: 5.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}, {"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}, {"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+Completed 500 Internal Server Error in 5347ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by NestedExample::TripsNoGoaltenderController#create as HTML
+  Parameters: {"trip"=>{"destinations_attributes"=>[{"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}, {"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}, {"arrival_date"=>"02/14/2016", "city"=>"West Lavonberg", "departure_date"=>"02/15/2016", "state"=>"Colorado"}], "end_date"=>"02/21/2016", "name"=>"My Trip", "start_date"=>"02/14/2016"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "My Trip"], ["start_date", Sun, 14 Feb 2016], ["end_date", Sun, 21 Feb 2016], ["created_at", 2016-02-14 21:58:13 UTC], ["updated_at", 2016-02-14 21:58:13 UTC]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Lavonberg"], ["state", "Colorado"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:58:13 UTC], ["updated_at", 2016-02-14 21:58:13 UTC], ["trip_id", 63]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Lavonberg"], ["state", "Colorado"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:58:13 UTC], ["updated_at", 2016-02-14 21:58:13 UTC], ["trip_id", 63]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "destinations" ("city", "state", "arrival_date", "departure_date", "created_at", "updated_at", "trip_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "West Lavonberg"], ["state", "Colorado"], ["arrival_date", Sun, 14 Feb 2016], ["departure_date", Mon, 15 Feb 2016], ["created_at", 2016-02-14 21:58:13 UTC], ["updated_at", 2016-02-14 21:58:13 UTC], ["trip_id", 63]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/basic_example/trips/63
+Completed 302 Found in 52ms (ActiveRecord: 7.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

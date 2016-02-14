@@ -1,7 +1,8 @@
 PATH
-  remote: ~/Documents/LaunchPad/goaltender
+  remote: ~/Documents/LaunchPad/decanter
   specs:
-    goaltender (0.0.4)
+    decanter (0.5.2)
+      activesupport
 
 GEM
   remote: https://rubygems.org/
@@ -262,10 +263,10 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
+  decanter!
   factory_girl_rails
   faker
   figaro
-  goaltender!
   jbuilder (~> 2.0)
   jquery-rails
   launchy

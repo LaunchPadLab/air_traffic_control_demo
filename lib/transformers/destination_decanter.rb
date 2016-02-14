@@ -1,5 +1,5 @@
 module Transformers
-  class DestinationTransformer < Goaltender::Transformer
+  class DestinationTransformer < ATC::Form
     input :city
     input :state
     input :arrival_date, :date, parse_format: '%m/%d/%Y'

@@ -1,6 +1,7 @@
 class BasicExample::TripsController < ApplicationController
   def create
-    @trip = Trip.new(transformed_trip_params)
+    hash = Trip.decant(trip_params)
+    @trip = Trip.new(hash)
 
     if @trip.save
       redirect_to basic_example_trip_path(@trip)
@@ -16,6 +17,6 @@ class BasicExample::TripsController < ApplicationController
     end
 
     def transformed_trip_params
-      Transformers::TripTransformer.new(trip_params).transform
+      Transformers::TripTransformer.new(trip_params).parsed_params
     end
 end

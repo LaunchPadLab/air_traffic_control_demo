@@ -13,7 +13,9 @@ gem 'rails', '5.0.0.beta1'
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'figaro'
-gem 'goaltender', path: '~/Documents/LaunchPad/goaltender', branch: 'transformer-only'
+# gem 'air_traffic_control', git: 'https://github.com/LaunchPadLab/air_traffic_control.git', branch: 'master'
+gem 'decanter', path: '~/Documents/LaunchPad/decanter', branch: 'master'
+# gem 'decanter'
 
 group :development do
   gem 'web-console', '~> 3.0'

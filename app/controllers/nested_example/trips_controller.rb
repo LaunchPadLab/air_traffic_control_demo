@@ -1,5 +1,6 @@
 class NestedExample::TripsController < ApplicationController
   def create
+    binding.pry
     @trip = Trip.new(transformed_trip_params)
 
     if @trip.save
@@ -16,6 +17,6 @@ class NestedExample::TripsController < ApplicationController
     end
 
     def transformed_trip_params
-      @transformed_trip_params ||= Transformers::TripTransformer.new(trip_params).transform
+      @transformed_trip_params ||= Transformers::TripTransformer.new(trip_params).parsed_params
     end
 end
